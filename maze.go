@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"strings"
+
+	"github.com/fatih/color"
 )
 
 type maze struct {
@@ -76,12 +77,18 @@ func (m maze) String() string {
 			sb.WriteString("\n")
 		}
 		for y := 0; y < len(m.values[x]); y++ {
+			var s string
 			switch m.values[x][y] {
-			case openSpace, wall, endPoint:
-				sb.WriteString(fmt.Sprintf("%d ", m.values[x][y]))
+			case openSpace:
+				s = color.New(color.FgWhite).Sprintf("%d ", m.values[x][y])
+			case wall:
+				s = color.New(color.FgBlue).Sprintf("%d ", m.values[x][y])
+			case endPoint:
+				s = color.New(color.FgGreen).Sprintf("%d ", m.values[x][y])
 			default:
-				sb.WriteString(fmt.Sprintf("x "))
+				s = color.New(color.FgRed).Sprintf("x ")
 			}
+			sb.WriteString(s)
 		}
 	}
 	return sb.String()

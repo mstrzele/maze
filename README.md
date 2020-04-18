@@ -1,3 +1,5 @@
+[![Run on Repl.it](https://repl.it/badge/github/mstrzele/maze)](https://repl.it/github/mstrzele/maze)
+
 ```go
 /* 
 Your previous Python 3 content is preserved below:
